@@ -1,9 +1,6 @@
-import '../styles/TodoItem.css';
-import { useState } from 'react';
 
 function TodoItem({todo, updateItemsState}) {
 
-  // const [currentItem, setCurrentItem] = useState(null);
 
   function dragEndHandler(e) {
     e.target.style.boxShadow = 'none';
@@ -11,7 +8,6 @@ function TodoItem({todo, updateItemsState}) {
 
   function dragStartHandler(e, item) {
       e.dataTransfer.setData('text/plain', JSON.stringify(item));
-      // console.log(currentItem)
   }
 
   function dragOverHandler(e) {

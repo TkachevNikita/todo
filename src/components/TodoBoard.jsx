@@ -2,9 +2,7 @@ import TodoItem from "./TodoItem";
 import '../styles/TodoList.css';
 import '../styles/TodoCompleteList.css';
 
-function TodoCompleteList({todos, updateItemsState}) {
-
-    const filteredTodos = todos.filter(todo => todo.status === 'completed');
+function TodoBoard({todos, updateItemsState, boardTitle, color}) {
 
     const updateFromList = (updatedItem) => {
         updateItemsState(updatedItem);
@@ -12,11 +10,11 @@ function TodoCompleteList({todos, updateItemsState}) {
 
     return (
       <div className="todo-list">
-          <div className="todo-list__title" style={{backgroundColor: 'green'}}>
-            Выполнены
+          <div className="todo-list__title" style={{backgroundColor: color}}>
+            {boardTitle}
           </div>
           <div className="todo-list__body">
-            {filteredTodos.map((todo) => 
+            {todos.map((todo) => 
               <TodoItem todo={todo} key={todo.id} updateItemsState={updateFromList}/>
             )}
           </div>
@@ -24,4 +22,4 @@ function TodoCompleteList({todos, updateItemsState}) {
     );
   }
   
-  export default TodoCompleteList;
+  export default TodoBoard;
